@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+
+</head>
+
+<body class="flex-column">
+    <header class="hero">
+        <h1 class="app-title"><i class="fas fa-cloud-sun-rain"></i>Weather Dashboard</h1>
+    </header>
+    <main class="flex-row">
+        <div class="search-wrapper component">
+            <div>
+                <h3 class="card-header">Search for a city</h3>
+                <form class="card-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <button class="btn" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                    <!-- <label class="form-label" for="city">City</label> -->
+                    <!-- <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+                    <button type="submit" class="btn"><i class="fas fa-search"></i></button> -->
+                </form>
+            </div>
+            <div class="search history">
+                <div class="list-item">DUMMY CITY ONE</div>
+                <div class='list-item'>DUMMY CITY TWO</div>
+            </div>
+        </div>
+        <div class="details component">
+            <div class='today'>
+                <h3>DUMMY CITY DETAILS</h3>
+                <p id="temperature">Temperature: 123.456 F</p>
+                <p id="humidity">Humidity: 123%</p>
+                <p id="wind-speed">Wind Speed: 123 MPH</p>
+                <p class="uv-index">UV INDEX 9.50</p>
+            </div>
+            <div class="row">
+                <div class="column" id='1'>
+                    <div class="card">
+                        <h3 class="card-date">MM/DD/YYYY</h3>
+                        <p class='card-weather-icon'></p>
+                        <p class='card-temperature'>123.0 F</p>
+                        <p class='card-humidity'>Humidity</p>
+                    </div>
+                </div>
+
+                <div class="column" id='2'>
+                    <div class="card">
+                        <h3 class="card-date">MM/DD/YYYY</h3>
+                        <p class='card-weather-icon'></p>
+                        <p class='card-temperature'>123.0 F</p>
+                        <p class='card-humidity'>Humidity</p>
+                    </div>
+                </div>
+
+                <div class="column" id='3'>
+                    <div class="card">
+                        <h3 class="card-date">MM/DD/YYYY</h3>
+                        <p class='card-weather-icon'></p>
+                        <p class='card-temperature'>123.0 F</p>
+                        <p class='card-humidity'>Humidity</p>
+                    </div>
+                </div>
+
+                <div class="column" id='4'>
+                    <div class="card">
+                        <h3 class="card-date">MM/DD/YYYY</h3>
+                        <p class='card-weather-icon'></p>
+                        <p class='card-temperature'>123.0 F</p>
+                        <p class='card-humidity'>Humidity</p>
+                    </div>
+                </div>
+
+                <div class="column" id='5'>
+                    <div class="card">
+                        <h3 class="card-date">MM/DD/YYYY</h3>
+                        <p class='card-weather-icon'></p>
+                        <p class='card-temperature'>123.0 F</p>
+                        <p class='card-humidity'>Humidity</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+</body>
+
+</html>
