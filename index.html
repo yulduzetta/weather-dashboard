@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Weather Dashboard</title>
 
 </head>
@@ -22,11 +23,9 @@
                 <form class="card-body">
                     <div class="input-group">
                         <input type="text" class="form-control">
-                        <button class="btn" type="button"><i class="fas fa-search"></i></button>
+                        <button onclick="displayWeather()" class="btn" type="button"><i
+                                class="fas fa-search"></i></button>
                     </div>
-                    <!-- <label class="form-label" for="city">City</label> -->
-                    <!-- <input name="city" id="city" type="text" autofocus="true" class="form-input" />
-                    <button type="submit" class="btn"><i class="fas fa-search"></i></button> -->
                 </form>
             </div>
             <div class="search history">
@@ -91,6 +90,7 @@
 
 
         </div>
+        <script src="assets/js/weather-dashbard.js"></script>
 </body>
 
 </html>
