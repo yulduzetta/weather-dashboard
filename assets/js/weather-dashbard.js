@@ -156,21 +156,21 @@ var dispayCurrentWeather = function (response, cityName = currentCity) {
   )})`;
 
   // display the icon
-  var parentEl = document.querySelector(".today h1");
+  var headerEl = document.querySelector(".today h1");
+  var weather = response.current.weather[0].main.toLowerCase();
 
-  if (response.current.weather[0].main.toLowerCase() == "clouds") {
-    parentEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-cloud"></i>`;
-  } else if (response.current.weather[0].main.toLowerCase() == "clear") {
-    parentEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-day-sunny"></i>`;
-  } else if (response.current.weather[0].main.toLowerCase() == "fog") {
-    parentEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-fog"></i>`;
-  } else if (response.current.weather[0].main.toLowerCase() == "mist") {
-    alert("MIST");
-    parentEl.innerHTML = `${weatherDetailsHeaderText} <i class="fas fa-smog"></i>`;
-  } else if (response.current.weather[0].main.toLowerCase() == "rain") {
-    parentEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-rain"></i>`;
-  } else if (response.current.weather[0].main.toLowerCase() == "snow") {
-    parentEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-snow"></i>`;
+  if (weather == "clouds") {
+    headerEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-cloud"></i>`;
+  } else if (weather == "clear") {
+    headerEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-day-sunny"></i>`;
+  } else if (weather == "fog") {
+    headerEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-fog"></i>`;
+  } else if (weather == "mist") {
+    headerEl.innerHTML = `${weatherDetailsHeaderText} <i class="fas fa-smog"></i>`;
+  } else if (weather == "rain") {
+    headerEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-rain"></i>`;
+  } else if (weather == "snow") {
+    headerEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-snow"></i>`;
   }
   document.querySelector("#temperature span").textContent =
     response.current.temp;
@@ -228,7 +228,23 @@ var displayFiveDayForecast = function (response) {
     $(`[data-attr='${i}'] .card-humidity span`).text(
       `${response.daily[i].humidity}`
     );
-    $(`[data-attr='${i}'] .card-weather-icon span`).text("ICON");
+    var weather = `${response.daily[i].weather[0].main}`.toLowerCase();
+    var weatherIconEl = document.querySelector(
+      `[data-attr='${i}'] .card-weather-icon span`
+    );
+    if (weather == "clouds") {
+      weatherIconEl.innerHTML = '<i class="wi wi-cloud"></i>';
+    } else if (weather == "clear") {
+      weatherIconEl.innerHTML = '<i class="wi wi-day-sunny"></i>';
+    } else if (weather == "fog") {
+      weatherIconEl.innerHTML = '<i class="wi wi-fog"></i>';
+    } else if (weather == "mist") {
+      weatherIconEl.innerHTML = '<i class="fas fa-smog"></i>';
+    } else if (weather == "rain") {
+      weatherIconEl.innerHTML = '<i class="wi wi-rain"></i>';
+    } else if (weather == "snow") {
+      weatherIconEl.innerHTML = '<i class="wi wi-snow"></i>';
+    }
   }
 };
 
