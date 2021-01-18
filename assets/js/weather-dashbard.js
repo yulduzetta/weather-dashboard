@@ -154,7 +154,24 @@ var dispayCurrentWeather = function (response, cityName = currentCity) {
   var weatherDetailsHeaderText = `${titleCase(cityName)} (${moment().format(
     "MM/DD/YYYY"
   )})`;
-  document.querySelector(".today h1").textContent = weatherDetailsHeaderText;
+
+  // display the icon
+  var parentEl = document.querySelector(".today h1");
+
+  if (response.current.weather[0].main.toLowerCase() == "clouds") {
+    parentEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-cloud"></i>`;
+  } else if (response.current.weather[0].main.toLowerCase() == "clear") {
+    parentEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-day-sunny"></i>`;
+  } else if (response.current.weather[0].main.toLowerCase() == "fog") {
+    parentEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-fog"></i>`;
+  } else if (response.current.weather[0].main.toLowerCase() == "mist") {
+    alert("MIST");
+    parentEl.innerHTML = `${weatherDetailsHeaderText} <i class="fas fa-smog"></i>`;
+  } else if (response.current.weather[0].main.toLowerCase() == "rain") {
+    parentEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-rain"></i>`;
+  } else if (response.current.weather[0].main.toLowerCase() == "snow") {
+    parentEl.innerHTML = `${weatherDetailsHeaderText} <i class="wi wi-snow"></i>`;
+  }
   document.querySelector("#temperature span").textContent =
     response.current.temp;
   document.querySelector("#humidity span").textContent =

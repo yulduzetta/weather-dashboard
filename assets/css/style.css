@@ -10,9 +10,12 @@
 }
 
 /* ICONS */
-.fa-search:before {
-  color: var(--primary);
+.fa-search:before,
+.fa-cloud:before
+{
+  color: lightgray
 }
+
 
 /* HEADER SECTION STARTS */
 .hero {
