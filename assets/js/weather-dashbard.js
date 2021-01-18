@@ -275,7 +275,7 @@ onInitialPageLoad();
 $(".search-history .list-item").click(function () {
   let cityName, coordinatesQuery;
   cityName = $(this).innerText;
-  alert("yay" + cityName);
+  alert("UNIMPLEMENTED FUNCTIONALITY, SRY: " + cityName);
   // // call api and display results
   // // handle city weather details
   // getWeatherCurrentAndForecast(coordinatesQuery).then((response) => {
