@@ -275,14 +275,10 @@ onInitialPageLoad();
 $("button.list-item").click(function () {
   let cityName, coordinatesQuery;
   let spanEl = $(this).find("span");
+  cityName = $(this)[0].innerText;
   coordinatesQuery = spanEl[0].innerHTML.replace("amp;", "").trim();
-  console.log(coordinatesQuery);
-  // // call api and display results
-  // // handle city weather details
   getWeatherCurrentAndForecast(coordinatesQuery).then((response) => {
-    // show today's weather details
-    dispayCurrentWeather(response);
-    // show 5 day weather forecast
+    dispayCurrentWeather(response, cityName);
     displayFiveDayForecast(response);
   });
 });
