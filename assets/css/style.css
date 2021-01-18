@@ -2,6 +2,7 @@
   --primary: aliceblue;
   --secondary: steelblue;
   font-family: "DM Sans", sans-serif;
+  color: #2b2d2f;
 }
 
 * {
@@ -40,8 +41,18 @@ h2 {
   padding: 0 10px;
   display: inline-block;
 }
+
+.form-control {
+  font-size: 25px;
+}
+
 .btn {
   background-color: var(--secondary);
+  font-size: 25px;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* HEADER ENDS */
@@ -56,6 +67,11 @@ h2 {
 .search-history {
   display: flex;
   flex-direction: column;
+}
+
+.search-wrapper{
+  background: var(--primary);
+  padding: 10px;
 }
 
 .component {
@@ -78,15 +94,19 @@ h2 {
 .details {
   margin-left: 20px;
   padding: 16px;
-}
+  background: var(--primary);}
 
 .list-item {
   margin-bottom: 10px;
-  padding: 1.5%;
-  background-color: var(--primary);
-  color: black;
+  background-color: #e7f3fe;
+  color: gray;
   text-decoration: none;
+  border: none;
+  padding: 15pt;
+  font-size: larger;
+  text-align: left;
 }
+
 .card-body {
   padding-bottom: 20px;
 }
@@ -99,6 +119,7 @@ h2 {
 
 .row {
   display: flex;
+  text-align-last: justify;
 }
 
 /* Clear floats after the columns */

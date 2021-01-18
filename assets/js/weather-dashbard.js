@@ -170,16 +170,15 @@ var displayFiveDayForecast = function (response) {
     return moment.unix(timestamp).format("MM/DD/YYYY");
   };
   for (var i = 0; i <= 4; i++) {
-    //moment.unix(value).format("MM/DD/YYYY");
     $(`[data-attr='${i}'] h3 span`).text(
       `${formattedTimestamp(response.daily[i].dt)}`
     );
     $(`[data-attr='${i}'] .card-temperature span`).text(
       `${response.daily[i].temp.day}`
-    ); //response.daily[0].temp.day
+    );
     $(`[data-attr='${i}'] .card-humidity span`).text(
       `${response.daily[i].humidity}`
-    ); //response.daily[0].humidity
+    );
     $(`[data-attr='${i}'] .card-weather-icon span`).text("ICON");
   }
 };
@@ -189,22 +188,37 @@ var displayFiveDayForecast = function (response) {
 // attach new city to the search history
 var attachCityInfoToSearchHistory = function (cityName, coordinatesQuery) {
   var cityListEl = $(".search-history");
-  var cityListItemEl = document.createElement("a");
-  var coordinatesQuerySpan = document.createElement('span');
+  var cityListItemEl = document.createElement("button");
+  cityListItemEl.setAttribute("style", "cursor: pointer");
+  var coordinatesQuerySpan = document.createElement("span");
   coordinatesQuerySpan.innerHTML = coordinatesQuery;
-  coordinatesQuerySpan.style.display = 'none';
+  coordinatesQuerySpan.style.display = "none";
 
-  cityListItemEl.setAttribute("href", "");
   const cityNameCapitalized = titleCase(cityName);
 
   cityListItemEl.classList.add("list-item");
   cityListItemEl.textContent = cityNameCapitalized;
   cityListEl.append(cityListItemEl);
   cityListItemEl.append(coordinatesQuerySpan);
-
 };
-
-//**************** LISTENERS ****************
 
 //**************** ON LOAD ****************
 onInitialPageLoad();
+
+//**************** LISTENERS ****************
+// $(document).on("click", ".appDetails", function () {
+$(".search-history .list-item").click(function () {
+  let cityName, coordinatesQuery;
+  cityName = $(this).innerText;
+  alert("yay" + cityName);
+});
+// });
+
+// // call api and display results
+// // handle city weather details
+// getWeatherCurrentAndForecast(coordinatesQuery).then((response) => {
+//   // show today's weather details
+//   dispayCurrentWeather(response);
+//   // show 5 day weather forecast
+//   displayFiveDayForecast(response);
+// });
