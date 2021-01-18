@@ -67,21 +67,24 @@ h1 {
 
 .details {
   margin-left: 20px;
+  padding: 16px;
 }
 
 .list-item {
   margin-bottom: 10px;
   padding: 1.5%;
-  background-color: beige;
+  background-color: var(--primary);
   color: black;
   text-decoration: none;
 }
-
+.card-body {
+    padding-bottom: 20px;
+}
 /* Float four columns side by side */
 .column {
   float: left;
   width: fit-content;
-  padding: 0 10px;
+  padding-right: 10px;
 }
 
 .row {
@@ -108,7 +111,7 @@ h1 {
 .card {
   color: var(--primary);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
+  padding: 20px;
   text-align: center;
   background-color: var(--secondary);
 }
