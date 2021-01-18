@@ -272,16 +272,17 @@ onInitialPageLoad();
 
 //**************** LISTENERS ****************
 // $(document).on("click", ".appDetails", function () {
-$(".search-history .list-item").click(function () {
+$("button.list-item").click(function () {
   let cityName, coordinatesQuery;
-  cityName = $(this).innerText;
-  alert("UNIMPLEMENTED FUNCTIONALITY, SRY: " + cityName);
+  let spanEl = $(this).find("span");
+  coordinatesQuery = spanEl[0].innerHTML.replace("amp;", "").trim();
+  console.log(coordinatesQuery);
   // // call api and display results
   // // handle city weather details
-  // getWeatherCurrentAndForecast(coordinatesQuery).then((response) => {
-  //   // show today's weather details
-  //   dispayCurrentWeather(response);
-  //   // show 5 day weather forecast
-  //   displayFiveDayForecast(response);
-  // });
+  getWeatherCurrentAndForecast(coordinatesQuery).then((response) => {
+    // show today's weather details
+    dispayCurrentWeather(response);
+    // show 5 day weather forecast
+    displayFiveDayForecast(response);
+  });
 });
