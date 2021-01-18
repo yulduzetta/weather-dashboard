@@ -211,10 +211,7 @@ $(".search-history .list-item").click(function () {
   let cityName, coordinatesQuery;
   cityName = $(this).innerText;
   alert("yay" + cityName);
-});
-// });
-
-// // call api and display results
+  // // call api and display results
 // // handle city weather details
 // getWeatherCurrentAndForecast(coordinatesQuery).then((response) => {
 //   // show today's weather details
@@ -222,3 +219,4 @@ $(".search-history .list-item").click(function () {
 //   // show 5 day weather forecast
 //   displayFiveDayForecast(response);
 // });
+});ƒ
