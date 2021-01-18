@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Dashboard</title>
 
 </head>
@@ -32,55 +35,56 @@
         </div>
         <div class="details component">
             <div class='today'>
-                <h3>DUMMY CITY DETAILS</h3>
-                <p id="temperature">Temperature: 123.456 F</p>
-                <p id="humidity">Humidity: 123%</p>
-                <p id="wind-speed">Wind Speed: 123 MPH</p>
-                <p class="uv-index">UV INDEX 9.50</p>
+                <h1></h1>
+                <p id="temperature">Temperature: <span></span> °F</p>
+                <p id="humidity">Humidity: <span></span>%</p>
+                <p id="wind-speed">Wind Speed: <span></span> MPH</p>
+                <p id="uv-index">UV INDEX: <span></span></p>
             </div>
+            <h2>5-Day Forecast</h2>
             <div class="row">
-                <div class="column" id='1'>
+                <div class="column" data-attr="0">
                     <div class="card">
-                        <h3 class="card-date">MM/DD/YYYY</h3>
-                        <p class='card-weather-icon'></p>
-                        <p class='card-temperature'>123.0 F</p>
-                        <p class='card-humidity'>Humidity</p>
+                        <h3 class="card-date"><span></span></h3>
+                        <p class='card-weather-icon'><span></span></p>
+                        <p class='card-temperature'>Temp: <span></span>°F</p>
+                        <p class='card-humidity'>Humidity: <span></span>%</p>
                     </div>
                 </div>
 
-                <div class="column" id='2'>
+                <div class="column" data-attr="1">
                     <div class="card">
-                        <h3 class="card-date">MM/DD/YYYY</h3>
-                        <p class='card-weather-icon'></p>
-                        <p class='card-temperature'>123.0 F</p>
-                        <p class='card-humidity'>Humidity</p>
+                        <h3 class="card-date"><span></span></h3>
+                        <p class='card-weather-icon'><span></span></p>
+                        <p class='card-temperature'>Temp: <span></span>°F</p>
+                        <p class='card-humidity'>Humidity: <span></span>%</p>
                     </div>
                 </div>
 
-                <div class="column" id='3'>
+                <div class="column" data-attr="2">
                     <div class="card">
-                        <h3 class="card-date">MM/DD/YYYY</h3>
-                        <p class='card-weather-icon'></p>
-                        <p class='card-temperature'>123.0 F</p>
-                        <p class='card-humidity'>Humidity</p>
+                        <h3 class="card-date"><span></span></h3>
+                        <p class='card-weather-icon'><span></span></p>
+                        <p class='card-temperature'>Temp: <span></span>°F</p>
+                        <p class='card-humidity'>Humidity: <span></span>%</p>
                     </div>
                 </div>
 
-                <div class="column" id='4'>
+                <div class="column" data-attr="3">
                     <div class="card">
-                        <h3 class="card-date">MM/DD/YYYY</h3>
-                        <p class='card-weather-icon'></p>
-                        <p class='card-temperature'>123.0 F</p>
-                        <p class='card-humidity'>Humidity</p>
+                        <h3 class="card-date"><span></span></h3>
+                        <p class='card-weather-icon'><span></span></p>
+                        <p class='card-temperature'>Temp: <span></span>°F</p>
+                        <p class='card-humidity'>Humidity: <span></span>%</p>
                     </div>
                 </div>
 
-                <div class="column" id='5'>
+                <div class="column" data-attr="4">
                     <div class="card">
-                        <h3 class="card-date">MM/DD/YYYY</h3>
-                        <p class='card-weather-icon'></p>
-                        <p class='card-temperature'>123.0 F</p>
-                        <p class='card-humidity'>Humidity</p>
+                        <h3 class="card-date"><span></span></h3>
+                        <p class='card-weather-icon'><span></span></p>
+                        <p class='card-temperature'>Temp: <span></span>°F</p>
+                        <p class='card-humidity'>Humidity: <span></span>%</p>
                     </div>
                 </div>
             </div>

@@ -26,6 +26,12 @@ h1 {
   margin: 0;
   line-height: 1.25;
 }
+h2 {
+  padding-top: 5%;
+}
+.card p{
+  font-size: 10pt;
+}
 
 .app-title {
   font-size: 3rem;
@@ -78,7 +84,7 @@ h1 {
   text-decoration: none;
 }
 .card-body {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 /* Float four columns side by side */
 .column {
@@ -111,7 +117,7 @@ h1 {
 .card {
   color: var(--primary);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  text-align: center;
+  padding: 3pt 30pt 14pt 16pt;
+  text-align: left;
   background-color: var(--secondary);
 }
