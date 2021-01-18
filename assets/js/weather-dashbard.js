@@ -161,7 +161,39 @@ var dispayCurrentWeather = function (response, cityName = currentCity) {
     response.current.humidity;
   document.querySelector("#wind-speed span").textContent =
     response.current.wind_speed;
-  document.querySelector("#uv-index span").textContent = response.current.uvi;
+  var uvi = parseFloat(response.current.uvi);
+  var uviEl = document.querySelector("#uv-index span");
+
+  // healthy 0 - 2
+  if (uvi < 3) {
+    uviEl.setAttribute(
+      "style",
+      "height: 200px; width: 200px; padding: 0px 20px; background: green; color: white"
+    );
+  }
+  // moderate 3 - 5
+  else if (uvi > 2 && uvi < 6) {
+    uviEl.setAttribute(
+      "style",
+      "height: 200px; width: 200px; padding: 0px 20px; background: yellow; color: blue"
+    );
+  }
+  // high 6 - 7
+  else if (uvi > 5 && uvi < 8) {
+    uviEl.setAttribute(
+      "style",
+      "height: 200px; width: 200px; padding: 0px 20px; background: orange; color: white"
+    );
+  }
+  // very high 8 - 10
+  else if (uvi > 7 && uvi < 11) {
+    uviEl.setAttribute(
+      "style",
+      "height: 200px; width: 200px; padding: 0px 20px; background: red; color: white"
+    );
+  }
+  // uviEl.setAttribute("style", "height: 200px; width: 200px; background: blue");
+  uviEl.textContent = uvi;
 };
 
 // display 5 day forecast
@@ -212,11 +244,11 @@ $(".search-history .list-item").click(function () {
   cityName = $(this).innerText;
   alert("yay" + cityName);
   // // call api and display results
-// // handle city weather details
-// getWeatherCurrentAndForecast(coordinatesQuery).then((response) => {
-//   // show today's weather details
-//   dispayCurrentWeather(response);
-//   // show 5 day weather forecast
-//   displayFiveDayForecast(response);
-// });
-});ƒ
+  // // handle city weather details
+  // getWeatherCurrentAndForecast(coordinatesQuery).then((response) => {
+  //   // show today's weather details
+  //   dispayCurrentWeather(response);
+  //   // show 5 day weather forecast
+  //   displayFiveDayForecast(response);
+  // });
+});
