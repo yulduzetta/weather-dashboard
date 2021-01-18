@@ -15,7 +15,7 @@ var displayWeather = function () {
     let coordinatesQuery = `lat=${lat}&lon=${lon}`;
 
     // show city in search history and store coordinates in local storage
-    addCityToSearchHistory(currentCity);
+    addCityToSearchHistory(currentCity, coordinatesQuery);
     addCityCoordinatesToLocalStorage(currentCity, coordinatesQuery);
 
     // handle city weather details
@@ -66,7 +66,10 @@ var onInitialPageLoad = function () {
 // show search history on page load
 var loadCitySearchHistory = function () {
   for (var i = 0; i < cityCoordinatesList.length; i++) {
-    attachCityInfoToSearchHistory(cityCoordinatesList[i].city);
+    attachCityInfoToSearchHistory(
+      cityCoordinatesList[i].city,
+      cityCoordinatesList[i].coordinatesQuery
+    );
   }
 };
 
@@ -79,14 +82,14 @@ var getUserInput = function () {
 };
 
 // add city to search history (only if unique)
-var addCityToSearchHistory = function (currentCity) {
+var addCityToSearchHistory = function (currentCity, coordinatesQuery) {
   // add city to the list only if distinct
   for (var i = 0; i < cityCoordinatesList.length; i++) {
     if (cityCoordinatesList[i].city === currentCity) {
       return;
     }
   }
-  attachCityInfoToSearchHistory(currentCity);
+  attachCityInfoToSearchHistory(currentCity, coordinatesQuery);
 };
 
 // given city coordinates, add city and its coordinates to localStorage
@@ -161,29 +164,44 @@ var dispayCurrentWeather = function (response, cityName = currentCity) {
   document.querySelector("#uv-index span").textContent = response.current.uvi;
 };
 
+// display 5 day forecast
 var displayFiveDayForecast = function (response) {
   let formattedTimestamp = function (timestamp) {
     return moment.unix(timestamp).format("MM/DD/YYYY");
-  }
-  for (var i = 0; i <= 4; i++) { //moment.unix(value).format("MM/DD/YYYY");
-    $(`[data-attr='${i}'] h3 span`).text(`${formattedTimestamp(response.daily[i].dt)}`);
-    $(`[data-attr='${i}'] .card-temperature span`).text(`${response.daily[0].temp.day}`); //response.daily[0].temp.day
-    $(`[data-attr='${i}'] .card-humidity span`).text(`${response.daily[0].humidity}`);;//response.daily[0].humidity
-    $(`[data-attr='${i}'] .card-weather-icon span`).text('ICON');
+  };
+  for (var i = 0; i <= 4; i++) {
+    //moment.unix(value).format("MM/DD/YYYY");
+    $(`[data-attr='${i}'] h3 span`).text(
+      `${formattedTimestamp(response.daily[i].dt)}`
+    );
+    $(`[data-attr='${i}'] .card-temperature span`).text(
+      `${response.daily[i].temp.day}`
+    ); //response.daily[0].temp.day
+    $(`[data-attr='${i}'] .card-humidity span`).text(
+      `${response.daily[i].humidity}`
+    ); //response.daily[0].humidity
+    $(`[data-attr='${i}'] .card-weather-icon span`).text("ICON");
   }
 };
 
 //**************** MISC UTILS ****************
 
 // attach new city to the search history
-var attachCityInfoToSearchHistory = function (cityName) {
+var attachCityInfoToSearchHistory = function (cityName, coordinatesQuery) {
   var cityListEl = $(".search-history");
-  var cityListItemEl = document.createElement("div");
+  var cityListItemEl = document.createElement("a");
+  var coordinatesQuerySpan = document.createElement('span');
+  coordinatesQuerySpan.innerHTML = coordinatesQuery;
+  coordinatesQuerySpan.style.display = 'none';
+
+  cityListItemEl.setAttribute("href", "");
   const cityNameCapitalized = titleCase(cityName);
 
   cityListItemEl.classList.add("list-item");
   cityListItemEl.textContent = cityNameCapitalized;
   cityListEl.append(cityListItemEl);
+  cityListItemEl.append(coordinatesQuerySpan);
+
 };
 
 //**************** LISTENERS ****************

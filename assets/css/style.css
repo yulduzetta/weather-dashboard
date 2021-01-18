@@ -29,7 +29,7 @@ h1 {
 h2 {
   padding-top: 5%;
 }
-.card p{
+.card p {
   font-size: 10pt;
 }
 
@@ -52,6 +52,10 @@ h2 {
   flex-wrap: wrap;
   margin: 20px 0px;
   width: 94%;
+}
+.search-history {
+  display: flex;
+  flex-direction: column;
 }
 
 .component {
