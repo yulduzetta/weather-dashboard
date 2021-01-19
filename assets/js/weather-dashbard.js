@@ -270,15 +270,23 @@ var attachCityInfoToSearchHistory = function (cityName, coordinatesQuery) {
 //**************** ON LOAD ****************
 onInitialPageLoad();
 
-//**************** LISTENERS ****************
-// $(document).on("click", ".appDetails", function () {
-$("button.list-item").click(function () {
-  let cityName, coordinatesQuery;
-  let spanEl = $(this).find("span");
-  cityName = $(this)[0].innerText;
-  coordinatesQuery = spanEl[0].innerHTML.replace("amp;", "").trim();
-  getWeatherCurrentAndForecast(coordinatesQuery).then((response) => {
-    dispayCurrentWeather(response, cityName);
-    displayFiveDayForecast(response);
-  });
-});
+
+//**************** EVENT HANDLERS ****************
+
+// when city from the search results is clicked, user should be presented with weather
+function handler(event) {
+  var target = $(event.target);
+  var searchListEl = $(".list-item");
+  if (target.is(searchListEl)) {
+    let cityName, coordinatesQuery;
+    let spanEl = target.find("span");
+    cityName = target[0].innerText;
+    coordinatesQuery = spanEl[0].innerHTML.replace("amp;", "").trim();
+    getWeatherCurrentAndForecast(coordinatesQuery).then((response) => {
+      dispayCurrentWeather(response, cityName);
+      displayFiveDayForecast(response);
+    });
+  }
+}
+
+$(".search-history").click(handler);
